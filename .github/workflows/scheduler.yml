@@ -3,7 +3,7 @@ name: Discord Scheduler
 on:
   schedule:
     - cron: "0 15 * * 1" # 月曜0時(JST) → weekly
-    - cron: "0 15 * * 2-7" # 火曜〜日曜0時(JST) → new
+    - cron: "0 15 * * 2,3,4,5,6,0" # 火曜〜日曜0時(JST) → new
   workflow_dispatch:
     inputs:
       mode:
