@@ -1,0 +1,16 @@
+- name: サンプルA
+  iconList:
+    - parent: 0
+      url: https://i.imgur.com/seUe8d9.png
+      rarity: 【R】
+    - parent: 20
+      url: https://i.imgur.com/WtG9hMf.jpeg
+      rarity: 【SR】
+- name: サンプルB
+  iconList:
+    - parent: 0
+      url: https://i.imgur.com/seUe8d9.png
+      rarity: 【R】
+    - parent: 20
+      url: hhttps://i.imgur.com/WtG9hMf.jpeg
+      rarity: 【SR】

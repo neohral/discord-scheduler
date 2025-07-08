@@ -1,0 +1,32 @@
+{
+  "name": "discord-scheduler",
+  "version": "1.0.0",
+  "description": "Discord bot for scheduling notifications from Google Calendar",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node scripts/copy-sample-to-player.js && node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "copy-player": "node scripts/copy-sample-to-player.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.3.1",
+    "googleapis": "^128.0.0",
+    "js-yaml": "^4.1.0",
+    "node-cron": "^3.0.3"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.2"
+  },
+  "keywords": [
+    "discord",
+    "calendar",
+    "scheduler",
+    "bot"
+  ],
+  "author": "",
+  "license": "MIT"
+}
