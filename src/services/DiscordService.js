@@ -11,7 +11,6 @@ class DiscordService {
     async sendMessage(content) {
         try {
             const randomPlayer = this.playerService.getRandomPlayer();
-            console.log(`選択されたプレイヤー: ${randomPlayer.name} (${randomPlayer.avatar})`);
 
             await this.webhook.send({
                 ...content,
