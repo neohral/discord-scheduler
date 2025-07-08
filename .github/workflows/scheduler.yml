@@ -2,7 +2,7 @@ name: Discord Scheduler
 
 on:
   schedule:
-    - cron: "*/5 * * * *" # 5分間隔に変更（動作確認のため）
+    - cron: "0 15 * * *" # JSTの0時に実行
   workflow_dispatch: # 手動実行用
 
 jobs:
