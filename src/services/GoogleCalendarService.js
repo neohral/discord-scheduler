@@ -42,11 +42,12 @@ class GoogleCalendarService {
     }
 
     getRecentEvents(events, daysAgo = 1) {
-        const thresholdDate = new Date();
-        thresholdDate.setDate(thresholdDate.getDate() - daysAgo)
-        thresholdDate.setHours(0, 0, 0, 0);
-
-        return events.filter(event => DateUtils.isRecentEvent(event, thresholdDate));
+        const maxDate = new Date();
+        maxDate.setHours(0, 0, 0, 0);
+        const minDate = new Date(maxDate);
+        minDate.setDate(minDate.getDate() - daysAgo);
+        
+        return events.filter(event => DateUtils.isRecentEvent(event, minDate, maxDate));
     }
 }
 

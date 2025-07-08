@@ -32,9 +32,9 @@ class DateUtils {
         return date;
     }
 
-    static isRecentEvent(event, thresholdDate) {
+    static isRecentEvent(event, minDate, maxDate) {
         const created = new Date(event.created || event.start.dateTime || event.start.date);
-        return created >= thresholdDate;
+        return created >= minDate && created < maxDate;
     }
 }
 
