@@ -3,7 +3,7 @@ name: Discord Scheduler
 on:
   schedule:
     # JSTの毎日0時（UTCの15時）
-    - cron: "0 15 * * *"
+    - cron: "*/1 * * * *" 
   workflow_dispatch: # 手動実行用
 
 jobs:
