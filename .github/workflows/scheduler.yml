@@ -45,7 +45,7 @@ jobs:
         run: node src/scheduler.js weekly
 
   new-events:
-    if: github.event.schedule == '0 15 * * 2-7' || (github.event_name == 'workflow_dispatch' && github.event.inputs.mode == 'new')
+    if: github.event.schedule == '0 15 * * 2,3,4,5,6,0' || (github.event_name == 'workflow_dispatch' && github.event.inputs.mode == 'new')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
