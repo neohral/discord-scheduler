@@ -26,7 +26,7 @@ const config = {
             iconList: [
                 {
                     parent: 0,
-                    url: "https://cdn.discordapp.com/emojis/📅.png",
+                    url: "https://i.imgur.com/zmiL1xT.jpeg",
                     rarity: "【R】"
                 }
             ]
