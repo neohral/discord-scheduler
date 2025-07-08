@@ -41,9 +41,10 @@ class GoogleCalendarService {
         }
     }
 
-    getRecentEvents(events, hoursAgo = 24) {
+    getRecentEvents(events, daysAgo = 1) {
         const thresholdDate = new Date();
-        thresholdDate.setHours(thresholdDate.getHours() - hoursAgo);
+        thresholdDate.setDate(thresholdDate.getDate() - daysAgo)
+        thresholdDate.setHours(0, 0, 0, 0);
 
         return events.filter(event => DateUtils.isRecentEvent(event, thresholdDate));
     }
