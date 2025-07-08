@@ -44,7 +44,20 @@ class Scheduler {
 
 // メイン実行
 const scheduler = new Scheduler();
-scheduler.run().catch(error => {
-    console.error('Application failed:', error);
+
+const mode = process.argv[2]; // コマンドライン引数
+
+if (mode === 'weekly') {
+    scheduler.sendWeeklySchedule().catch(error => {
+        console.error('Application failed:', error);
+        process.exit(1);
+    });
+} else if (mode === 'new') {
+    scheduler.checkNewEvents().catch(error => {
+        console.error('Application failed:', error);
+        process.exit(1);
+    });
+} else {
+    console.error('Usage: node src/scheduler.js [weekly|new]');
     process.exit(1);
-}); 
+} 
