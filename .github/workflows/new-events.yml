@@ -1,7 +1,7 @@
 name: Update Schedule
 on:
   schedule:
-    - cron: "0 15 * * 2,3,4,5,6,0" # 火曜〜日曜0時(JST)
+    - cron: "0 15 * * 1,2,3,4,5,6" # 火曜〜日曜0時(JST)
   workflow_dispatch:
 
 jobs:
