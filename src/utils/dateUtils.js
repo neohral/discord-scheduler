@@ -4,7 +4,10 @@ class DateUtils {
     static getWeekRange() {
         const now = new Date();
         const startOfWeek = new Date(now);
-        startOfWeek.setDate(now.getDate() - now.getDay() + 1); // 月曜日
+        // 起動した日の週の月曜日を取得
+        const dayOfWeek = now.getDay(); // 0=日曜日, 1=月曜日, ..., 6=土曜日
+        const daysToMonday = dayOfWeek === 0 ? 6 : dayOfWeek - 1; // 月曜日までの日数
+        startOfWeek.setDate(now.getDate() - daysToMonday);
         startOfWeek.setHours(0, 0, 0, 0);
 
         const endOfWeek = new Date(startOfWeek);
