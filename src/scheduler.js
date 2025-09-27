@@ -18,7 +18,7 @@ class Scheduler {
     async checkNewEvents() {
         const events = await this.calendarService.getWeekEvents();
         const newEvents = this.calendarService.getRecentEvents(events);
-        await this.discordService.sendNewEvents(newEvents);
+        await this.discordService.sendNewEvents(events, newEvents);
     }
 
     async run() {

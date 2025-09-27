@@ -44,19 +44,21 @@ class DiscordService {
         return embed;
     }
 
-    createNewEventsEmbed(newEvents) {
+    createNewEventsEmbed(events, newEvents) {
         const embed = new EmbedBuilder()
-            .setTitle('🆕 追加の予定')
+            .setTitle('📅 今週の予定(追加)')
             .setColor(config.app.colors.new)
             .setTimestamp();
 
-        for (const event of newEvents) {
+        for (const event of events) {
             const startTime = new Date(event.start.dateTime || event.start.date);
             const timeStr = event.start.dateTime ? DateUtils.formatTime(startTime) : '';
             const dateStr = DateUtils.formatDate(startTime);
 
+            const name = !newEvents.includes(event) ? `**${dateStr} ${timeStr}** 🆕` : `**${dateStr} ${timeStr}**`
+
             embed.addFields({
-                name: `**${dateStr} ${timeStr}**`,
+                name: name,
                 value: `・${event.summary}`,
                 inline: false
             });
@@ -75,14 +77,14 @@ class DiscordService {
         await this.sendMessage({ embeds: [embed] });
     }
 
-    async sendNewEvents(newEvents) {
+    async sendNewEvents(events, newEvents) {
         if (newEvents.length === 0) {
             console.log('24時間以内に追加された新しい予定はありません');
             return;
         }
 
         console.log(`${newEvents.length}件の新しい予定を検出しました（24時間以内）`);
-        const embed = this.createNewEventsEmbed(newEvents);
+        const embed = this.createNewEventsEmbed(events, newEvents);
         await this.sendMessage({ embeds: [embed] });
     }
 }
