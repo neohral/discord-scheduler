@@ -55,7 +55,7 @@ class DiscordService {
             const timeStr = event.start.dateTime ? DateUtils.formatTime(startTime) : '';
             const dateStr = DateUtils.formatDate(startTime);
 
-            const name = !newEvents.includes(event) ? `**${dateStr} ${timeStr}** 🆕` : `**${dateStr} ${timeStr}**`
+            const name = newEvents.includes(event) ? `**${dateStr} ${timeStr}** 🆕` : `**${dateStr} ${timeStr}**`
 
             embed.addFields({
                 name: name,
